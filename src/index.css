@@ -1,0 +1,546 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* lime glow utilities */
+.glow {
+  text-shadow: 0 0 6px rgba(210,255,0,0.4), 0 0 20px rgba(210,255,0,0.1);
+}
+.glow-lime {
+  text-shadow: 0 0 8px rgba(210,255,0,0.6), 0 0 24px rgba(210,255,0,0.15);
+}
+.bg-lime {
+  box-shadow: 0 6px 30px rgba(210,255,0,0.12), 0 0 40px rgba(210,255,0,0.08);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(20px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-reverse {
+  animation: float-reverse 8s ease-in-out infinite;
+}
+
+/* Lando Norris Design System - Exact Match */
+:root {
+  /* Colors - Exact from Lando site */
+  --color--dark-green: #282c20;
+  --color--white: #f4f4ed;
+  --color--black: #111112;
+  --color--lime: #d2ff00;
+  --color--lime-off: #b2c73a;
+  --color--lime-zero: #d2ff0000;
+  --color--green-off-white-1: #dde1d2;
+  --color--green-off-white-2: #b4b8a5;
+  --color--dark-green-tint-1: #3b3c38;
+  --color--dark-green-tint-2: #535450;
+  --color--grey-on-track: #b9bbad;
+  --color--grey-1: #ebeee0;
+  --color--grey-2: #c8cbbd;
+  --color--cream: #efefe5;
+  
+  /* Spacing */
+  --gap: 1.25rem;
+  --padding--container: 1.25rem;
+  --padding--small: 2rem;
+  --padding--med: 3rem;
+  --padding--large: 4rem;
+  --padding--xlarge: 5rem;
+  --padding--mini: 1rem;
+  
+  /* Typography */
+  --text--h1: 4rem;
+  --text--h2: 4.5rem;
+  --text--h3: 2rem;
+  --text--h4: 1.5rem;
+  --text--h5: 1.2rem;
+  --text--h6: 1rem;
+  --text--impact: 7.9375rem;
+  --text--reg: 1.6rem;
+  --text--med: 2.76rem;
+  --text--eyebrow: 0.578125rem;
+  --text--btn-primary: 1rem;
+  --text--btn-nav: 1.25rem;
+  
+  /* Border Radius */
+  --radius--small: 1rem;
+  --radius--med: 3rem;
+  --radius--large: 6.25rem;
+  
+  /* Animation */
+  --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
+  --duration-default: 0.75s;
+  --animation-default: var(--duration-default) var(--cubic-default);
+  
+  /* Legacy vars for compatibility */
+  --bg: var(--color--white);
+  --panel: rgba(0,0,0,0.02);
+  --muted: var(--color--dark-green-tint-2);
+}
+
+body {
+  background: var(--color--white);
+  color: var(--color--black);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-size: var(--text--reg);
+  line-height: 1.25;
+}
+
+.card {
+  background: rgba(255,255,255,0.4);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius--small);
+  padding: var(--padding--container);
+  transition: all var(--animation-default);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(210,255,0,0.15), transparent);
+  transition: left 0.5s;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+.card:hover {
+  border-color: rgba(210,255,0,0.3);
+  box-shadow: 0 8px 32px rgba(210,255,0,0.12), 0 0 40px rgba(210,255,0,0.06);
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.6);
+}
+
+.gradient-border {
+  position: relative;
+  background: rgba(255,255,255,0.4);
+  border-radius: var(--radius--small);
+  padding: var(--padding--container);
+  backdrop-filter: blur(10px);
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(210,255,0,0.4), rgba(210,255,0,0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+.small-muted { 
+  color: var(--color--dark-green-tint-2); 
+  font-size: 0.9rem; 
+}
+
+/* Lando Typography System */
+.text-eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .text-eyebrow {
+    font-size: 0.578125rem;
+  }
+}
+
+.text-impact-lg-mona {
+  font-size: clamp(3rem, 8vw, 7.9375rem);
+  line-height: 0.9;
+  font-weight: 750;
+  letter-spacing: -0.125rem;
+  text-transform: uppercase;
+  font-variation-settings: "wght" 750, "wdth" 93;
+}
+
+.text-impact-lg-mona strong {
+  color: var(--color--lime);
+}
+
+.text-impact-reg-brier {
+  font-size: var(--text--h2);
+  line-height: 0.886;
+  font-weight: 400;
+  letter-spacing: -0.05rem;
+  text-transform: uppercase;
+}
+
+.text-impact-reg-mona {
+  font-size: var(--text--h2);
+  line-height: 0.886;
+  font-weight: 750;
+  letter-spacing: -0.125rem;
+  text-transform: uppercase;
+  font-variation-settings: "wght" 750, "wdth" 93;
+}
+
+.text-title-lg-mona {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 0.886;
+  font-weight: 750;
+  letter-spacing: -0.125rem;
+  text-transform: uppercase;
+  font-variation-settings: "wght" 750, "wdth" 93;
+}
+
+.text-cta-short-intro {
+  font-size: 2rem;
+  line-height: 1.04;
+  letter-spacing: 0.040625rem;
+}
+
+.text-body-reg-mona {
+  font-size: var(--text--reg);
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+/* Split text lines */
+.split-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.split-text .line {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+/* High line reveal animation */
+.high-line-reveal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: right center;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.high-line-reveal[data-color="lime"] {
+  background-color: var(--color--lime);
+}
+
+.high-line-reveal[data-color="dark-green-tint-1"] {
+  background-color: var(--color--dark-green-tint-1);
+}
+
+.high-line-reveal[data-color="lime-off"] {
+  background-color: var(--color--lime-off);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(210,255,0,0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(210,255,0,0.5);
+}
+
+/* Particle background - subtle for light theme */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(210,255,0,0.2);
+  border-radius: 50%;
+  animation: float 20s infinite;
+}
+
+/* Text reveal animation - Lando Norris style */
+.text-reveal-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.text-reveal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--lime);
+  transform-origin: right center;
+  z-index: 5;
+}
+
+/* Dark section for lime text */
+.dark-section {
+  background-color: var(--color--dark-green);
+  color: white;
+}
+
+.dark-section .text-lime-static {
+  color: var(--color--lime);
+}
+
+.dark-section .card {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.dark-section .card:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(210,255,0,0.3);
+}
+
+/* Progress bar animation */
+@keyframes progress {
+  from { width: 0; }
+}
+
+.progress-bar {
+  animation: progress 1.5s ease-out forwards;
+}
+
+/* Parallax and scroll animations */
+.parallax-slow {
+  will-change: transform;
+}
+
+.parallax-fast {
+  will-change: transform;
+}
+
+/* Card hover effects - Lando style */
+.card-lando {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--animation-default);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  border-radius: var(--radius--small);
+}
+
+.card-lando::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(210,255,0,0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.card-lando::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(210,255,0,0.2), transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card-lando:hover::before {
+  opacity: 1;
+}
+
+.card-lando:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Remove circular glow for skills section */
+.dark-section .card-lando::after {
+  display: none;
+}
+
+.card-lando:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(210,255,0,0.15), 0 0 40px rgba(210,255,0,0.1);
+}
+
+/* Helmet grid styles */
+.helmet-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .helmet-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.helmet-grid-item-w {
+  position: relative;
+  aspect-ratio: 406.89 / 411;
+  width: 100%;
+  overflow: hidden;
+}
+
+.helmet-grid-frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.helmet-grid-frame.is-overlay {
+  opacity: 0;
+  transition: opacity var(--animation-default);
+}
+
+.helmet-grid-item-w:hover .helmet-grid-frame.is-overlay {
+  opacity: 1;
+}
+
+.helmet-grid-item-img-helmet {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--animation-default);
+}
+
+.helmet-grid-item-w:hover .helmet-grid-item-img-helmet {
+  transform: scale(1.1);
+}
+
+/* Image reveal animation */
+.image-reveal {
+  overflow: hidden;
+  position: relative;
+}
+
+.image-reveal img {
+  transform: scale(1.1);
+  transition: transform 0.8s cubic-bezier(0.65, 0.05, 0, 1);
+}
+
+.image-reveal:hover img {
+  transform: scale(1);
+}
+
+/* Stagger animation */
+@keyframes stagger-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-item {
+  animation: stagger-in 0.6s cubic-bezier(0.65, 0.05, 0, 1) forwards;
+  opacity: 0;
+}
+
+/* Magnetic hover effect */
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Scroll reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.65, 0.05, 0, 1),
+              transform 0.8s cubic-bezier(0.65, 0.05, 0, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hide scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
