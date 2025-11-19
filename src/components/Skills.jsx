@@ -144,10 +144,7 @@ export default function Skills({ skills }) {
                 </div>
               </div>
 
-              {/* Decorative Bottom Number */}
-              <div className="absolute bottom-4 right-6 text-8xl font-bold text-white/5 select-none">
-                0{i + 1}
-              </div>
+
             </div>
           </motion.div>
         ))}
