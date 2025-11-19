@@ -60,14 +60,14 @@ export default function Skills({ skills }) {
   return (
     <section id="skills" className="space-y-12 py-12 overflow-visible" ref={ref}>
       <div className="mb-8 text-center">
-        <EyebrowText delay={0.1} direction="right" color="lime" className="mb-4 text-lime-100 justify-center">
+        <EyebrowText delay={0.1} direction="right" color="lime" className="mb-4 text-lime-600 justify-center">
           Technical Skills
         </EyebrowText>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-title-lg-mona text-lime-100"
+          className="text-title-lg-mona text-gray-900"
         >
           WHAT I USE
         </motion.h2>

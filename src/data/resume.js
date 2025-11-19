@@ -9,18 +9,40 @@ export const person = {
     {
       role: "Software Engineer II",
       company: "Zoho Corporation",
-      product: "EventLog Analyzer & Log360 Cloud – SIEM Platform",
-      period: "January 2022 – Present",
+      product: "EventLog Analyzer & Log360 Cloud",
+      period: "Jan 2024 – Present",
       location: "Chennai, TN",
       bullets: [
-        "Led migration of Threat Processing into a decoupled Kafka-based microservice architecture, improving throughput by 45% and enabling horizontal scalability.",
-        "Built AWS-based log ingestion pipelines for CloudTrail and S3 using SNS & SQS for near real-time monitoring.",
-        "Integrated threat-intel platforms (Kaspersky, CrowdStrike, Bitdefender) and ingested millions of IOCs daily; cached lookups in Redis.",
-        "Designed and maintained Elasticsearch clusters for billions of log entries; optimized sharding and queries for analytics.",
-        "Built secure REST APIs with OAuth2 and API token access control for internal/external integrations.",
-        "Implemented automated test suites using QEngine, raising test coverage and halving manual regression effort."
+        "Leading the migration of monolithic architecture to microservices using Spring Boot and Kafka.",
+        "Optimizing high-throughput data pipelines processing terabytes of log data daily.",
+        "Mentoring junior developers and establishing code quality standards for the team."
       ]
-    }
+    },
+    {
+      role: "Software Engineer",
+      company: "Zoho Corporation",
+      product: "EventLog Analyzer",
+      period: "Jun 2022 – Dec 2023",
+      location: "Chennai, TN",
+      bullets: [
+        "Developed RESTful APIs for third-party integrations and internal communication.",
+        "Implemented real-time threat detection algorithms using complex event processing.",
+        "Reduced database query latency by 40% through efficient indexing strategies."
+      ]
+    },
+    {
+      role: "Project Trainee",
+      company: "Zoho Corporation",
+      product: "Internship",
+      period: "Jan 2022 – May 2022",
+      location: "Chennai, TN",
+      bullets: [
+        "Collaborated with the backend team to build a prototype for log anomaly detection.",
+        "Learned and applied Java and Spring framework best practices in a production environment.",
+        "Participated in daily stand-ups and agile development cycles."
+      ]
+    },
+
   ],
   projects: [
     {

@@ -10,7 +10,7 @@ import Contact from './components/Contact'
 import Marquee from './components/Marquee'
 import { person } from './data/resume'
 
-export default function App(){
+export default function App() {
   return (
     <Layout person={person}>
       <Hero person={person} />
@@ -18,9 +18,7 @@ export default function App(){
       <main className="max-w-7xl mx-auto px-6 py-12 space-y-24 relative z-10">
         <Experience items={person.experience} />
         <Projects items={person.projects} />
-        <div className="dark-section py-20 px-8 rounded-2xl -mx-6">
-          <Skills skills={person.skills} />
-        </div>
+        <Skills skills={person.skills} />
         <Awards items={person.awards} />
         <Contact person={person} />
       </main>
