@@ -48,7 +48,7 @@ export default function Particles() {
         // Draw particle
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(210, 255, 0, ${particle.opacity})`
+        ctx.fillStyle = `rgba(156, 163, 175, ${particle.opacity})`
         ctx.fill()
 
         // Draw connections
@@ -61,8 +61,8 @@ export default function Particles() {
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(210, 255, 0, ${0.08 * (1 - distance / 150)})`
-            ctx.lineWidth = 0.5
+            ctx.strokeStyle = `rgba(156, 163, 175, ${0.3 * (1 - distance / 150)})`
+            ctx.lineWidth = 1
             ctx.stroke()
           }
         })

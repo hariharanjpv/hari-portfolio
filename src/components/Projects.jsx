@@ -4,7 +4,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import TextReveal from './TextReveal'
 import EyebrowText from './EyebrowText'
 
-export default function Projects({ items }){
+export default function Projects({ items }) {
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 })
   const [expandedIndex, setExpandedIndex] = useState(null)
   const detailsRef = useRef(null)
@@ -17,7 +17,7 @@ export default function Projects({ items }){
     target: ref,
     offset: ["start end", "end start"]
   })
-  
+
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -30])
   const y2 = useTransform(scrollYProgress, [0, 1], [0, 30])
 
@@ -161,13 +161,13 @@ export default function Projects({ items }){
   return (
     <section id="projects" className="space-y-6 relative" ref={ref}>
       {/* Section Title */}
-      <div className="mb-8">
-        <EyebrowText delay={0.1} direction="right" color="lime" className="mb-4">
+      <div className="mb-8 text-center">
+        <EyebrowText delay={0.1} direction="right" color="lime" className="mb-4 justify-center">
           Featured Work
         </EyebrowText>
-        <motion.h2 
-          initial={{opacity:0, y:20}}
-          animate={isVisible ? {opacity:1, y:0} : {opacity:0, y:20}}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
           className="text-title-lg-mona"
         >
@@ -191,7 +191,7 @@ export default function Projects({ items }){
                 onClick={() => handleFolderClick(idx)}
                 onMouseEnter={() => handleFolderHover(idx, true)}
                 onMouseLeave={() => handleFolderHover(idx, false)}
-                style={{ 
+                style={{
                   y: idx % 2 === 0 ? y1 : y2,
                   boxShadow: hoveredIndex === idx ? '0 0 30px rgba(210,255,0,0.4), 0 0 60px rgba(210,255,0,0.2)' : 'none',
                   transition: 'box-shadow 0.3s ease-in-out',
@@ -206,9 +206,9 @@ export default function Projects({ items }){
                   transition={{ duration: 0.3 }}
                 >
                   <svg width="100%" height="100%" viewBox="0 0 407 411" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path 
-                      d="M8 1h390.89a7 7 0 0 1 7 7v356.983a7 7 0 0 1-7 7H263.329a23.999 23.999 0 0 0-18.766 9.038l-16.499 20.694A21.999 21.999 0 0 1 210.862 410H8a7 7 0 0 1-7-7V8a7 7 0 0 1 7-7Z" 
-                      stroke="var(--color--lime)" 
+                    <path
+                      d="M8 1h390.89a7 7 0 0 1 7 7v356.983a7 7 0 0 1-7 7H263.329a23.999 23.999 0 0 0-18.766 9.038l-16.499 20.694A21.999 21.999 0 0 1 210.862 410H8a7 7 0 0 1-7-7V8a7 7 0 0 1 7-7Z"
+                      stroke="var(--color--lime)"
                       strokeWidth="2"
                     />
                   </svg>
@@ -216,9 +216,9 @@ export default function Projects({ items }){
                 {/* Base frame */}
                 <div className="helmet-grid-frame is-base absolute inset-0" style={{ color: 'var(--color--dark-green-tint-2)' }}>
                   <svg width="100%" height="100%" viewBox="0 0 407 411" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path 
-                      d="M8 1h390.89a7 7 0 0 1 7 7v356.983a7 7 0 0 1-7 7H263.329a23.999 23.999 0 0 0-18.766 9.038l-16.499 20.694A21.999 21.999 0 0 1 210.862 410H8a7 7 0 0 1-7-7V8a7 7 0 0 1 7-7Z" 
-                      stroke="currentColor" 
+                    <path
+                      d="M8 1h390.89a7 7 0 0 1 7 7v356.983a7 7 0 0 1-7 7H263.329a23.999 23.999 0 0 0-18.766 9.038l-16.499 20.694A21.999 21.999 0 0 1 210.862 410H8a7 7 0 0 1-7-7V8a7 7 0 0 1 7-7Z"
+                      stroke="currentColor"
                       strokeWidth="1"
                     />
                   </svg>
@@ -227,8 +227,8 @@ export default function Projects({ items }){
                 <div className="relative w-full h-full flex flex-col items-center justify-center">
                   <div className="absolute inset-0 flex items-center justify-center z-20">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect x="8" y="16" width="32" height="20" rx="4" fill="#d2ff00" stroke="#282c20" strokeWidth="2"/>
-                      <rect x="12" y="12" width="12" height="8" rx="2" fill="#b2c73a" stroke="#282c20" strokeWidth="2"/>
+                      <rect x="8" y="16" width="32" height="20" rx="4" fill="#d2ff00" stroke="#282c20" strokeWidth="2" />
+                      <rect x="12" y="12" width="12" height="8" rx="2" fill="#b2c73a" stroke="#282c20" strokeWidth="2" />
                     </svg>
                   </div>
                   <div className="absolute top-4 left-4 right-4 z-30">
@@ -283,9 +283,9 @@ export default function Projects({ items }){
                 transition={{ duration: 0.3 }}
               >
                 <svg width="100%" height="100%" viewBox="0 0 407 411" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path 
-                    d="M8 1h390.89a7 7 0 0 1 7 7v356.983a7 7 0 0 1-7 7H263.329a23.999 23.999 0 0 0-18.766 9.038l-16.499 20.694A21.999 21.999 0 0 1 210.862 410H8a7 7 0 0 1-7-7V8a7 7 0 0 1 7-7Z" 
-                    stroke="var(--color--lime)" 
+                  <path
+                    d="M8 1h390.89a7 7 0 0 1 7 7v356.983a7 7 0 0 1-7 7H263.329a23.999 23.999 0 0 0-18.766 9.038l-16.499 20.694A21.999 21.999 0 0 1 210.862 410H8a7 7 0 0 1-7-7V8a7 7 0 0 1 7-7Z"
+                    stroke="var(--color--lime)"
                     strokeWidth="2"
                   />
                 </svg>
@@ -293,9 +293,9 @@ export default function Projects({ items }){
               {/* Base frame */}
               <div className="helmet-grid-frame is-base absolute inset-0" style={{ color: 'var(--color--dark-green-tint-2)' }}>
                 <svg width="100%" height="100%" viewBox="0 0 407 411" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path 
-                    d="M8 1h390.89a7 7 0 0 1 7 7v356.983a7 7 0 0 1-7 7H263.329a23.999 23.999 0 0 0-18.766 9.038l-16.499 20.694A21.999 21.999 0 0 1 210.862 410H8a7 7 0 0 1-7-7V8a7 7 0 0 1 7-7Z" 
-                    stroke="currentColor" 
+                  <path
+                    d="M8 1h390.89a7 7 0 0 1 7 7v356.983a7 7 0 0 1-7 7H263.329a23.999 23.999 0 0 0-18.766 9.038l-16.499 20.694A21.999 21.999 0 0 1 210.862 410H8a7 7 0 0 1-7-7V8a7 7 0 0 1 7-7Z"
+                    stroke="currentColor"
                     strokeWidth="1"
                   />
                 </svg>
@@ -303,8 +303,8 @@ export default function Projects({ items }){
               <div className="relative w-full h-full flex flex-col items-center justify-center">
                 <div className="absolute inset-0 flex items-center justify-center z-20">
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="8" y="16" width="32" height="20" rx="4" fill="#d2ff00" stroke="#282c20" strokeWidth="2"/>
-                    <rect x="12" y="12" width="12" height="8" rx="2" fill="#b2c73a" stroke="#282c20" strokeWidth="2"/>
+                    <rect x="8" y="16" width="32" height="20" rx="4" fill="#d2ff00" stroke="#282c20" strokeWidth="2" />
+                    <rect x="12" y="12" width="12" height="8" rx="2" fill="#b2c73a" stroke="#282c20" strokeWidth="2" />
                   </svg>
                 </div>
                 <div className="absolute top-4 left-4 right-4 z-30">
@@ -326,8 +326,8 @@ export default function Projects({ items }){
             >
               {/* Animated border drawing effect - overlay on top of card */}
               <motion.svg
-                width={cardDimensions.width + 40} 
-                height={cardDimensions.height + 40} 
+                width={cardDimensions.width + 40}
+                height={cardDimensions.height + 40}
                 viewBox={`0 0 ${cardDimensions.width + 40} ${cardDimensions.height + 40}`}
                 fill="none"
                 animate={{ opacity: showBorder ? 1 : 0 }}
@@ -335,9 +335,9 @@ export default function Projects({ items }){
                 style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 3, pointerEvents: 'none' }}
               >
                 <motion.rect
-                  x="10" y="10" 
-                  width={cardDimensions.width + 20} 
-                  height={cardDimensions.height + 20} 
+                  x="10" y="10"
+                  width={cardDimensions.width + 20}
+                  height={cardDimensions.height + 20}
                   rx="24"
                   stroke="#d2ff00"
                   strokeWidth="3"
@@ -352,7 +352,7 @@ export default function Projects({ items }){
               {/* Details panel - card content */}
               <motion.div
                 ref={cardRef}
-                className="card-lando gradient-border bg-beige p-6 flex flex-col justify-center items-center relative"
+                className="backdrop-blur-md bg-gray-100/40 border border-gray-200/30 shadow-lg p-6 flex flex-col justify-center items-center relative"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -360,7 +360,9 @@ export default function Projects({ items }){
                 whileHover={{}}
                 style={{ width: '100%', margin: '0 auto', zIndex: 2, borderRadius: '24px', willChange: 'opacity' }}
               >
-                <div className="space-y-4 w-full">
+                {/* Frosted Glass Highlight */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-transparent opacity-50 pointer-events-none rounded-3xl" />
+                <div className="space-y-4 w-full relative z-10">
                   <div>
                     <div className="text-sm small-muted mb-1">{items[expandedIndex].period}</div>
                     <div className="font-semibold text-xl mb-2">
@@ -381,19 +383,19 @@ export default function Projects({ items }){
                     </div>
                   )}
                   <div className="flex gap-2 pt-2">
-                    <motion.a 
-                      href="#" 
+                    <motion.a
+                      href="#"
                       className="px-4 py-2 rounded-md border border-lime-100/30 small-muted hover:bg-lime-100/10 hover:border-lime-100 hover:text-lime-100 transition-all"
-                      
-                      
+
+
                     >
                       Case study
                     </motion.a>
-                    <motion.a 
-                      href="#" 
+                    <motion.a
+                      href="#"
                       className="px-4 py-2 rounded-md border border-lime-100/30 small-muted hover:bg-lime-100/10 hover:border-lime-100 hover:text-lime-100 transition-all"
-                      
-                      
+
+
                     >
                       Repo
                     </motion.a>
@@ -402,8 +404,8 @@ export default function Projects({ items }){
                   <div className="flex justify-end pt-4">
                     <motion.button
                       className="px-4 py-2 rounded-md border border-lime-100/30 small-muted bg-black/10 hover:bg-lime-100/10 hover:border-lime-100 hover:text-lime-100 transition-all"
-                      
-                      
+
+
                       onClick={() => {
                         setExpandedIndex(null)
                         setTimeout(() => focusProjectsSection(), 360)

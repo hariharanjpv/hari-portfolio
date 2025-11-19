@@ -33,24 +33,26 @@ const ExperienceCard = ({ item, index, isLeft }) => {
         className="w-full md:w-5/12 pl-12 md:pl-0"
       >
         <motion.div
-          animate={{ y: [0, -10, 0] }}
+          animate={{ y: [0, -8, 0] }}
           transition={{
-            duration: 4,
+            duration: 6,
             repeat: Infinity,
-            ease: "easeInOut",
-            delay: index * 0.5 // Stagger the floating animation
+            ease: [0.45, 0.05, 0.55, 0.95], // Custom smooth easing curve
+            delay: index * 0.3,
+            repeatType: "loop"
           }}
           className={`
             relative overflow-hidden rounded-2xl p-6 cursor-pointer
-            backdrop-blur-md bg-white/30 border border-white/20 shadow-lg
-            hover:shadow-xl hover:bg-white/40 transition-all duration-300
+            backdrop-blur-md bg-gray-100/40 border border-gray-200/30 shadow-lg
+            hover:shadow-xl hover:bg-gray-100/50 transition-all duration-300
             group
           `}
           onClick={() => setIsOpen(!isOpen)}
           layout
+          layoutId={`card-${index}`}
         >
           {/* Frosted Glass Highlight */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-50 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50/50 to-transparent opacity-50 pointer-events-none" />
 
           <motion.div layout className="relative z-10 flex flex-col gap-2">
             <div className="flex justify-between items-start">
